@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Footnotes::VERSION
   gem.authors       = ["Daniel Stutzman"]
   gem.email         = ["dtstutz@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Like Jose Valim's Rails Footnotes, but for Sinatra}
+  gem.summary       = %q{Like Jose Valim's Rails Footnotes, but for Sinatra}
+  gem.homepage      = "https://github.com/danielstutzman/sinatra-footnotes"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
