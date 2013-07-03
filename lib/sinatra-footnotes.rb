@@ -1,7 +1,5 @@
 require "sinatra-footnotes/version"
 
-module Sinatra
-  module Footnotes
-    # Your code goes here...
-  end
+module Footnotes
+  # Your code goes here...
 end

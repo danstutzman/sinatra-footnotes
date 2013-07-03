@@ -5,7 +5,7 @@ require 'sinatra-footnotes/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "sinatra-footnotes"
-  gem.version       = Sinatra::Footnotes::VERSION
+  gem.version       = Footnotes::VERSION
   gem.authors       = ["Daniel Stutzman"]
   gem.email         = ["dtstutz@gmail.com"]
   gem.description   = %q{TODO: Write a gem description}
