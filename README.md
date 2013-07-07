@@ -1,6 +1,6 @@
 # Sinatra Footnotes
 
-Every page has footnotes that give information about your application. Based on Rails Footnotes by Jose Valim (https://github.com/josevalim/rails-footnotes)
+Every page has footnotes that give information about your application. Based on Rails Footnotes by José Valim (https://github.com/josevalim/rails-footnotes)
 
 ## Installation
 
