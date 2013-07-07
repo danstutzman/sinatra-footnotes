@@ -58,6 +58,7 @@ module Sinatra
         style_path = File.join(
           File.dirname(__FILE__), 'sinatra-footnotes', 'style.html')
         response.body.push(File.read(style_path))
+
 response.body.push('<!-- Footnotes -->')
 response.body.push('<div style="clear:both"></div>')
 response.body.push('<div id="footnotes_debug">')
@@ -142,58 +143,11 @@ response.body.push(%Q!
               <legend>General (id="general_debug_info")</legend>
               <div>You can use this tab to debug other parts of your application, for example Javascript.</div>
             </fieldset>
-
-          <script type="text/javascript">
-            var Footnotes = function() {
-
-              function hideAll(){
-Footnotes.hide(document.getElementById('session_debug_info'));
-Footnotes.hide(document.getElementById('cookies_debug_info'));
-Footnotes.hide(document.getElementById('params_debug_info'));
-Footnotes.hide(document.getElementById('filters_debug_info'));
-Footnotes.hide(document.getElementById('routes_debug_info'));
-Footnotes.hide(document.getElementById('env_debug_info'));
-Footnotes.hide(document.getElementById('queries_debug_info'));
-Footnotes.hide(document.getElementById('log_debug_info'));
-Footnotes.hide(document.getElementById('general_debug_info'));
-
-              }
-
-              function hideAllAndToggle(id) {
-                hideAll();
-                toggle(id)
-
-                location.href = '#footnotes_debug';
-              }
-
-              function toggle(id){
-                var el = document.getElementById(id);
-                if (el.style.display == 'none') {
-                  Footnotes.show(el);
-                } else {
-                  Footnotes.hide(el);
-                }
-              }
-
-              function show(element) {
-                element.style.display = 'block'
-              }
-
-              function hide(element) {
-                element.style.display = 'none'
-              }
-
-              return {
-                show: show,
-                hide: hide,
-                toggle: toggle,
-                hideAllAndToggle: hideAllAndToggle
-              }
-            }();
-            /* Additional Javascript */
-            
-          </script>
 !)
+        script_path = File.join(
+          File.dirname(__FILE__), 'sinatra-footnotes', 'script.html')
+        response.body.push(File.read(script_path))
+
         response.body.push '</div>'
         response.body.push '<!-- End Footnotes -->'
         response.body.push html_for_instance_variables
