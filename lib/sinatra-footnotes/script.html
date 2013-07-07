@@ -2,16 +2,11 @@
   var Footnotes = function() {
 
     function hideAll(){
+      Footnotes.hide(document.getElementById('assigns_debug_info'));
+      Footnotes.hide(document.getElementById('params_debug_info'));
       Footnotes.hide(document.getElementById('session_debug_info'));
       Footnotes.hide(document.getElementById('cookies_debug_info'));
-      Footnotes.hide(document.getElementById('params_debug_info'));
-      Footnotes.hide(document.getElementById('filters_debug_info'));
-      Footnotes.hide(document.getElementById('routes_debug_info'));
       Footnotes.hide(document.getElementById('env_debug_info'));
-      Footnotes.hide(document.getElementById('queries_debug_info'));
-      Footnotes.hide(document.getElementById('log_debug_info'));
-      Footnotes.hide(document.getElementById('general_debug_info'));
-  
     }
   
     function hideAllAndToggle(id) {
