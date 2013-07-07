@@ -1,5 +1,6 @@
 require 'sinatra-footnotes/version'
 require 'sinatra/base'
+require 'active_support/core_ext'
 
 dir = File.dirname(__FILE__)
 %w[session cookies params sinatra_routes env assigns].each do |prefix|
