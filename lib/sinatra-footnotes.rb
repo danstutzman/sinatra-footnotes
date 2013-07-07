@@ -74,10 +74,12 @@ response.body.push(%[
 
 ])
 response.body.push('<!-- Footnotes -->')
+response.body.push('<div style="clear:both"></div>')
+response.body.push('<div id="footnotes_debug">')
+response.body.push('Show:')
+
 response.body.push(%Q!
-        <div style="clear:both"></div>
-        <div id="footnotes_debug">
-Show: <a href="#" onclick="Footnotes.hideAllAndToggle('session_debug_info');return false;">Session (2)</a> | 
+<a href="#" onclick="Footnotes.hideAllAndToggle('session_debug_info');return false;">Session (2)</a> | 
 <a href="#" onclick="Footnotes.hideAllAndToggle('cookies_debug_info');return false;">Cookies (0)</a> | 
 <a href="#" onclick="Footnotes.hideAllAndToggle('params_debug_info');return false;">Params (2)</a> | 
 <a href="#" onclick="Footnotes.hideAllAndToggle('filters_debug_info');return false;">Filters</a> | 
@@ -88,6 +90,9 @@ Show: <a href="#" onclick="Footnotes.hideAllAndToggle('session_debug_info');retu
 </a> | 
 <a href="#" onclick="Footnotes.hideAllAndToggle('log_debug_info');return false;">Log (0)</a> | 
 <a href="#" onclick="Footnotes.hideAllAndToggle('general_debug_info');return false;">General Debug</a><br />
+!)
+
+response.body.push(%Q!
             <fieldset id="session_debug_info" style="display: none">
               <legend>Session</legend>
               <div>          <table class="name_value" summary="Debug information for Session (2)" >
@@ -203,8 +208,8 @@ Footnotes.hide(document.getElementById('general_debug_info'));
             /* Additional Javascript */
             
           </script>
-        </div>
 !)
+        response.body.push '</div>'
         response.body.push '<!-- End Footnotes -->'
         response.body.push html_for_instance_variables
         response.body.push html_for_params
