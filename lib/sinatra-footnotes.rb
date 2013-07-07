@@ -2,7 +2,7 @@ require 'sinatra-footnotes/version'
 require 'sinatra/base'
 
 dir = File.dirname(__FILE__)
-%w[session cookies params env assigns].each do |prefix|
+%w[session cookies params sinatra_routes env assigns].each do |prefix|
   require File.join(dir, 'sinatra-footnotes', 'notes', "#{prefix}_note.rb")
 end
 
@@ -70,6 +70,7 @@ module Sinatra
         notes.push ::Footnotes::Notes::SessionNote.new(self)
         notes.push ::Footnotes::Notes::CookiesNote.new(self.request)
         notes.push ::Footnotes::Notes::ParamsNote.new(self)
+        notes.push ::Footnotes::Notes::SinatraRoutesNote.new(app)
         notes.push ::Footnotes::Notes::EnvNote.new(self)
         notes.push(::Footnotes::Notes::AssignsNote.new(self).tap do |note|
           note.ignored_assigns = [:@default_layout, :@app, :@template_cache,
