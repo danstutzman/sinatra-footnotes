@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Sinatra::Footnotes::VERSION
   gem.authors       = ["Daniel Stutzman"]
   gem.email         = ["dtstutz@gmail.com"]
-  gem.description   = %q{Like Jose Valim's Rails Footnotes, but for Sinatra}
-  gem.summary       = %q{Like Jose Valim's Rails Footnotes, but for Sinatra}
+  gem.description   = "Every page has footnotes that give information about your application."
+  gem.summary       = "Every page has footnotes that give information about your application."
   gem.homepage      = "https://github.com/danielstutzman/sinatra-footnotes"
 
   gem.files         = `git ls-files`.split($/)
