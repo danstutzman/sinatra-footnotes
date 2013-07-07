@@ -1,6 +1,6 @@
-# Sinatra::Footnotes
+# Sinatra Footnotes
 
-TODO: Write a gem description
+Every page has footnotes that give information about your application. Based on Rails Footnotes by Jose Valim (https://github.com/josevalim/rails-footnotes)
 
 ## Installation
 
@@ -18,12 +18,6 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this line to your Sinatra application file:
 
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+    require 'sinatra-footnotes'
