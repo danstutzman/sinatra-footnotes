@@ -76,7 +76,7 @@ module Sinatra
         notes.push(::Footnotes::Notes::AssignsNote.new(self).tap do |note|
           note.ignored_assigns = [:@default_layout, :@app, :@template_cache,
                                   :@env, :@request, :@response, :@params,
-                                  :@preferred_extension, :@_out_buf]
+                                  :@preferred_extension, :@_out_buf, :@_routes]
         end)
 
         response.body.push notes.map { |note| link_helper(note) }.join(' | ')
