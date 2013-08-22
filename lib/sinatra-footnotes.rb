@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'active_support/core_ext'
 
 dir = File.dirname(__FILE__)
-%w[session cookies params sinatra_routes env assigns].each do |prefix|
+%w[session flash cookies params sinatra_routes env assigns].each do |prefix|
   require File.join(dir, 'sinatra-footnotes', 'notes', "#{prefix}_note.rb")
 end
 
@@ -69,6 +69,7 @@ module Sinatra
 
         notes = []
         notes.push ::Footnotes::Notes::SessionNote.new(self)
+        notes.push ::Footnotes::Notes::FlashNote.new(self)
         notes.push ::Footnotes::Notes::CookiesNote.new(self.request)
         notes.push ::Footnotes::Notes::ParamsNote.new(self)
         notes.push ::Footnotes::Notes::SinatraRoutesNote.new(app)
