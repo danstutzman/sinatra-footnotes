@@ -60,37 +60,39 @@ module Sinatra
       app.after do
         style_path = File.join(
           File.dirname(__FILE__), 'sinatra-footnotes', 'style.html')
-        response.body.push File.read(style_path)
+        if response.body.respond_to? :push
+          response.body.push File.read(style_path)
 
-        response.body.push '<!-- Footnotes -->'
-        response.body.push '<div style="clear:both"></div>'
-        response.body.push '<div id="footnotes_debug">'
-        response.body.push 'Show:'
+          response.body.push '<!-- Footnotes -->'
+          response.body.push '<div style="clear:both"></div>'
+          response.body.push '<div id="footnotes_debug">'
+          response.body.push 'Show:'
 
-        notes = []
-        notes.push ::Footnotes::Notes::SessionNote.new(self)
-        notes.push ::Footnotes::Notes::FlashNote.new(self)
-        notes.push ::Footnotes::Notes::CookiesNote.new(self.request)
-        notes.push ::Footnotes::Notes::ParamsNote.new(self)
-        notes.push ::Footnotes::Notes::SinatraRoutesNote.new(app)
-        notes.push ::Footnotes::Notes::EnvNote.new(self)
-        notes.push(::Footnotes::Notes::AssignsNote.new(self).tap do |note|
-          note.ignored_assigns = [:@default_layout, :@app, :@template_cache,
-                                  :@env, :@request, :@response, :@params,
-                                  :@preferred_extension, :@_out_buf, :@_routes]
-        end)
+          notes = []
+          notes.push ::Footnotes::Notes::SessionNote.new(self)
+          notes.push ::Footnotes::Notes::FlashNote.new(self)
+          notes.push ::Footnotes::Notes::CookiesNote.new(self.request)
+          notes.push ::Footnotes::Notes::ParamsNote.new(self)
+          notes.push ::Footnotes::Notes::SinatraRoutesNote.new(app)
+          notes.push ::Footnotes::Notes::EnvNote.new(self)
+          notes.push(::Footnotes::Notes::AssignsNote.new(self).tap do |note|
+            note.ignored_assigns = [:@default_layout, :@app, :@template_cache,
+                                    :@env, :@request, :@response, :@params,
+                                    :@preferred_extension, :@_out_buf, :@_routes]
+          end)
 
-        response.body.push notes.map { |note| link_helper(note) }.join(' | ')
-        response.body.push '<br />'
+          response.body.push notes.map { |note| link_helper(note) }.join(' | ')
+          response.body.push '<br />'
 
-        response.body.push fieldsets(notes)
+          response.body.push fieldsets(notes)
 
-        script_path = File.join(
-          File.dirname(__FILE__), 'sinatra-footnotes', 'script.html')
-        response.body.push(File.read(script_path))
+          script_path = File.join(
+            File.dirname(__FILE__), 'sinatra-footnotes', 'script.html')
+          response.body.push(File.read(script_path))
 
-        response.body.push '</div>'
-        response.body.push '<!-- End Footnotes -->'
+          response.body.push '</div>'
+          response.body.push '<!-- End Footnotes -->'
+        end
       end
     end
   end
