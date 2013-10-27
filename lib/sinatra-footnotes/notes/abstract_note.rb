@@ -162,7 +162,7 @@ module Footnotes
         def mount_table_for_hash(hash, options={})
           rows = []
           hash.each do |key, value|
-            rows << [ key.to_sym.inspect, escape(value.inspect) ]
+            rows << [ escape(key.inspect), escape(value.inspect) ]
           end
           mount_table(rows.unshift(['Name', 'Value']), {:class => 'name_value'}.merge(options))
         end
