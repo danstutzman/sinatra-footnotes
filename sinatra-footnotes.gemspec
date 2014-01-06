@@ -6,6 +6,7 @@ require 'sinatra-footnotes/version'
 Gem::Specification.new do |gem|
   gem.name          = "sinatra-footnotes"
   gem.version       = Sinatra::Footnotes::VERSION
+  gem.licenses      = ['MIT']
   gem.authors       = ["Daniel Stutzman"]
   gem.email         = ["dtstutz@gmail.com"]
   gem.description   = "Every page has footnotes that give information about your application."
